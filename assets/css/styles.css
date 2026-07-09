@@ -1,0 +1,215 @@
+/* =========================================================
+   পুনিয়ানগর দারুস সালাম মাদরাসা — শেয়ারড স্টাইলশিট
+   Design tokens: academic teal + brass gold, seal / certificate motif
+   ========================================================= */
+
+:root{
+  --teal:      #0E3D3A;   /* primary deep academic teal */
+  --teal-dark: #082523;   /* darkest teal, headers/footers */
+  --navy:      #16324A;   /* secondary depth accent */
+  --brass:     #B08D3F;   /* muted brass-gold accent */
+  --brass-lt:  #D2B36A;   /* lighter brass for text-on-dark */
+  --paper:     #F8F7F3;   /* page background */
+  --mist:      #E7EEEC;   /* alt section background */
+  --mist-deep: #D7E2DE;
+  --ink:       #1E2422;   /* body text */
+  --maroon:    #7A2A2A;   /* alerts / notice accent */
+  --maroon-dk: #591D1D;
+  --header-h: 84px;
+}
+
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Hind Siliguri", sans-serif;
+}
+::selection{ background:var(--brass); color:#fff; }
+
+h1,h2,h3,h4, .font-display{
+  font-family:"Noto Serif Bengali", serif;
+}
+.font-arabic{ font-family:"Amiri", serif; }
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible{
+  outline:3px solid var(--brass);
+  outline-offset:2px;
+}
+
+/* ---------- utility color classes (used instead of tailwind arbitrary, for consistency) ---------- */
+.bg-teal{ background:var(--teal); }
+.bg-teal-dark{ background:var(--teal-dark); }
+.bg-paper{ background:var(--paper); }
+.bg-mist{ background:var(--mist); }
+.bg-maroon{ background:var(--maroon); }
+.bg-maroon-dark{ background:var(--maroon-dk); }
+.text-teal{ color:var(--teal); }
+.text-brass{ color:var(--brass); }
+.text-brass-lt{ color:var(--brass-lt); }
+.text-ink{ color:var(--ink); }
+.border-brass{ border-color:var(--brass); }
+
+/* =========================================================
+   SIGNATURE MOTIF — the seal / emblem
+   A circular badge with a double ring + 8-point star,
+   used in the logo, hero, section dividers and footer.
+   ========================================================= */
+.seal{
+  --size: 48px;
+  width:var(--size); height:var(--size);
+  border-radius:9999px;
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 35% 30%, #12524d, var(--teal-dark) 75%);
+  box-shadow: inset 0 0 0 2px rgba(210,179,106,.55), inset 0 0 0 6px rgba(210,179,106,.12);
+}
+.seal svg{ color:var(--brass-lt); }
+
+/* double hairline divider used to open major sections, echoes a certificate rule */
+.rule-eyebrow{
+  display:inline-flex; align-items:center; gap:.65rem;
+  font-size:.72rem; font-weight:700; letter-spacing:.08em;
+  color:var(--brass); text-transform:none;
+}
+.rule-eyebrow::before, .rule-eyebrow::after{
+  content:""; width:2.25rem; height:2px; background:var(--brass); opacity:.55;
+}
+.rule-eyebrow::after{ display:none; }
+.rule-eyebrow.centered::after{ display:block; }
+
+/* certificate-style card: thin double top border */
+.cert-card{
+  position:relative;
+  background:#fff;
+  border:1px solid rgba(11,61,58,.10);
+}
+.cert-card::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:5px;
+  background: linear-gradient(90deg, var(--teal) 0 40%, var(--brass) 40% 60%, var(--teal) 60% 100%);
+}
+
+/* corner brackets accent, used sparingly on the hero / featured elements */
+.corners{ position:relative; }
+.corners::before, .corners::after{
+  content:""; position:absolute; width:22px; height:22px;
+  border:2px solid var(--brass-lt); opacity:.8;
+}
+.corners::before{ top:-8px; left:-8px; border-right:none; border-bottom:none; }
+.corners::after{ bottom:-8px; right:-8px; border-left:none; border-top:none; }
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+#siteHeader{
+  background:var(--teal-dark);
+  border-bottom:1px solid rgba(210,179,106,.18);
+}
+.nav-link{ position:relative; color:rgba(248,247,243,.88); }
+.nav-link::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+  background:var(--brass-lt); transform:scaleX(0); transform-origin:right;
+  transition:transform .25s ease;
+}
+.nav-link:hover::after, .nav-link.active::after{ transform:scaleX(1); transform-origin:left; }
+.nav-link.active{ color:#fff; }
+
+/* notice ticker: a normal in-flow bar (placed after the hero / page banner) */
+#noticeTicker{
+  position:relative;
+  background:var(--maroon);
+  border-bottom:1px solid rgba(210,179,106,.25);
+}
+.marquee-track{ display:flex; width:max-content; animation:marquee 34s linear infinite; }
+@keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  .marquee-track{ animation:none; }
+}
+
+/* mobile menu panel */
+#mobileMenu{ transform:translateX(100%); transition:transform .35s ease; background:var(--teal-dark); }
+#mobileMenu.open{ transform:translateX(0); }
+
+/* =========================================================
+   HERO SLIDER
+   ========================================================= */
+.hero-slide{
+  position:absolute; inset:0;
+  opacity:0; transition:opacity 1s ease;
+  display:flex; align-items:center;
+}
+.hero-slide.active{ opacity:1; z-index:1; }
+.hero-slide-bg-1{ background:radial-gradient(circle at 25% 20%, #14524d, #061e1c 72%); }
+.hero-slide-bg-2{ background:linear-gradient(135deg, #16324A, #082523 75%); }
+.hero-slide-bg-3{ background:radial-gradient(circle at 75% 30%, #B08D3F, #4d3c19 80%); }
+.hero-slide-bg-4{ background:linear-gradient(135deg, #0E3D3A, #16324A 60%, #B08D3F 130%); }
+
+.hero-dot{ width:9px; height:9px; border-radius:9999px; background:rgba(248,247,243,.4); transition:all .25s ease; }
+.hero-dot.active{ background:var(--brass-lt); width:24px; border-radius:9999px; }
+
+.hero-arrow{
+  width:44px; height:44px; border-radius:9999px;
+  background:rgba(248,247,243,.10); backdrop-filter:blur(2px);
+  display:flex; align-items:center; justify-content:center;
+  color:#F8F7F3; transition:background .2s ease;
+}
+.hero-arrow:hover{ background:rgba(248,247,243,.22); }
+
+/* =========================================================
+   REVEAL ON SCROLL
+   ========================================================= */
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:none; }
+
+/* card lift */
+.lift{ transition:transform .3s ease, box-shadow .3s ease; }
+.lift:hover{ transform:translateY(-5px); box-shadow:0 22px 40px -20px rgba(14,61,58,.35); }
+
+/* tabs */
+.tab-btn{ position:relative; transition:all .2s ease; background:var(--mist); color:var(--teal); }
+.tab-btn.active{ background:var(--teal); color:#fff; }
+
+/* filter buttons (notice board / events page) */
+.filter-btn{ transition:all .2s ease; background:var(--mist); color:var(--teal); }
+.filter-btn.active{ background:var(--teal); color:var(--paper); }
+
+/* accordion */
+.acc-chevron{ transition:transform .3s ease; }
+.acc-btn[aria-expanded="true"] .acc-chevron{ transform:rotate(180deg); }
+.acc-panel{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+
+/* gallery tiles (illustrative, no real photography) */
+.tile-1{ background:radial-gradient(circle at 30% 20%, #14524d, #061e1c 70%); }
+.tile-2{ background:linear-gradient(135deg, #7A2A2A, #3a1414); }
+.tile-3{ background:radial-gradient(circle at 70% 70%, #B08D3F, #56421c 78%); }
+.tile-4{ background:linear-gradient(135deg, #0E3D3A, #B08D3F 130%); }
+.tile-5{ background:radial-gradient(circle at 50% 30%, #16324A, #061e1c 78%); }
+.tile-6{ background:linear-gradient(135deg, #591D1D, #B08D3F 130%); }
+
+/* toast */
+#toast{ transform:translateY(120%); transition:transform .4s ease; }
+#toast.show{ transform:translateY(0); }
+
+/* back to top */
+#backToTop{ opacity:0; pointer-events:none; transition:opacity .3s ease; }
+#backToTop.show{ opacity:1; pointer-events:auto; }
+
+/* admission form wizard */
+.step-dot{ background:var(--mist); color:var(--teal); transition:all .25s ease; }
+.wizard-step-indicator.active .step-dot{ background:var(--teal); color:var(--paper); }
+.wizard-step-indicator.done .step-dot{ background:var(--brass); color:#fff; }
+.step-label{ color:var(--ink); opacity:.55; transition:opacity .25s ease; }
+.wizard-step-indicator.active .step-label{ opacity:1; color:var(--teal); }
+.wizard-step-indicator.done .step-label{ opacity:1; color:var(--brass); }
+.step-line.done{ background:var(--brass); }
+
+.counter{ font-variant-numeric:tabular-nums; }
+
+/* footer seal watermark */
+.footer-seal-bg{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D2B36A' stroke-width='0.6' opacity='0.5'%3E%3Ccircle cx='60' cy='60' r='40'/%3E%3Ccircle cx='60' cy='60' r='34'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:120px 120px;
+}

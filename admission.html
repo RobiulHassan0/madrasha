@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ভর্তি প্রক্রিয়া — পুনিয়ানগর দারুস সালাম মাদরাসা</title>
+<meta name="description" content="ভর্তি প্রক্রিয়া, প্রয়োজনীয় কাগজপত্র, ফি কাঠামো ও ধাপে ধাপে অনলাইন আবেদন ফরম।">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          teal: '#0E3D3A', tealdark:'#082523', navy:'#16324A',
+          brass:'#B08D3F', brasslt:'#D2B36A',
+          paper:'#F8F7F3', mist:'#E7EEEC', mistdeep:'#D7E2DE',
+          ink:'#1E2422', maroon:'#7A2A2A', maroondark:'#591D1D',
+        },
+        fontFamily: {
+          serif: ['"Noto Serif Bengali"', 'serif'],
+          sans: ['"Hind Siliguri"', 'sans-serif'],
+          arabic: ['"Amiri"', 'serif'],
+        },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans text-ink antialiased bg-paper">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-teal focus:text-paper focus:px-4 focus:py-2 focus:rounded">
+  মূল বিষয়বস্তুতে যান
+</a>
+<!-- ============ HEADER ============ -->
+<header id="siteHeader" class="sticky top-0 z-50 bg-teal-dark transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-[84px]">
+    <a href="index.html" class="flex items-center gap-3">
+      <span class="seal" style="--size:46px">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 2l2.2 5.8L20 9l-4.4 3.6L17 19l-5-3.4L7 19l1.4-6.4L4 9l5.8-1.2L12 2z"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-serif font-bold text-base md:text-lg text-paper">পুনিয়ানগর দারুস সালাম</span>
+        <span class="block text-[11px] md:text-xs tracking-wide text-brasslt/90">মাদরাসা, লক্ষ্মীপুর</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" id="desktopNav">
+      <a href="index.html" class="nav-link pb-1">হোম</a>
+      <a href="about.html" class="nav-link pb-1">পরিচিতি</a>
+      <a href="departments.html" class="nav-link pb-1">বিভাগসমূহ</a>
+      <a href="teachers.html" class="nav-link pb-1">শিক্ষকমণ্ডলী</a>
+      <a href="admission.html" class="nav-link pb-1">ভর্তি</a>
+      <a href="results.html" class="nav-link pb-1">ফলাফল</a>
+      <a href="gallery.html" class="nav-link pb-1">গ্যালারি</a>
+      <a href="notice.html" class="nav-link pb-1">নোটিশ</a>
+      <a href="contact.html" class="nav-link pb-1">যোগাযোগ</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="admission.html" class="hidden md:inline-flex items-center gap-2 bg-brass hover:bg-brasslt text-tealdark font-semibold text-sm px-5 py-2.5 rounded-md transition-colors">
+        ভর্তি চলছে
+      </a>
+      <button id="menuToggle" aria-label="মেনু খুলুন" aria-expanded="false" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-md border border-brasslt/40 text-paper">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div id="mobileMenu" class="fixed top-0 right-0 h-full w-[82%] max-w-sm z-[60] shadow-2xl flex flex-col px-8 py-8">
+  <div class="flex items-center justify-between mb-10">
+    <span class="font-serif text-paper text-lg font-bold">মেনু</span>
+    <button id="menuClose" aria-label="মেনু বন্ধ করুন" class="w-9 h-9 flex items-center justify-center rounded-md border border-brasslt/40 text-paper">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="flex flex-col gap-6 text-lg font-serif text-paper/90">
+    <a href="index.html" class="mobile-link nav-link">হোম</a>
+    <a href="about.html" class="mobile-link nav-link">পরিচিতি</a>
+    <a href="departments.html" class="mobile-link nav-link">বিভাগসমূহ</a>
+    <a href="teachers.html" class="mobile-link nav-link">শিক্ষকমণ্ডলী</a>
+    <a href="admission.html" class="mobile-link nav-link">ভর্তি</a>
+    <a href="results.html" class="mobile-link nav-link">ফলাফল</a>
+    <a href="gallery.html" class="mobile-link nav-link">গ্যালারি</a>
+    <a href="notice.html" class="mobile-link nav-link">নোটিশ</a>
+    <a href="contact.html" class="mobile-link nav-link text-brasslt">যোগাযোগ</a>
+  </nav>
+</div>
+<div id="menuOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
+
+<main id="main">
+<!-- ============ PAGE HEADER ============ -->
+<section class="bg-teal-dark text-paper py-16 px-6 relative overflow-hidden footer-seal-bg">
+  <div class="relative max-w-5xl mx-auto text-center">
+    <p class="rule-eyebrow centered justify-center text-brasslt mb-4">নতুন শিক্ষার্থী</p>
+    <h1 class="font-serif font-bold text-3xl md:text-5xl">ভর্তি প্রক্রিয়া</h1>
+    <p class="text-paper/75 max-w-xl mx-auto mt-4">১৪৪৭ হিজরি শিক্ষাবর্ষে ভর্তি চলছে — নিচের ধাপগুলো অনুসরণ করুন</p>
+  </div>
+</section>
+
+<!-- ============ NOTICE TICKER ============ -->
+<!-- ============ NOTICE TICKER (স্ট্যাটিক, হিরো/পেজ-হেডারের ঠিক পরে) ============ -->
+<div id="noticeTicker" class="text-paper overflow-hidden">
+  <div class="flex items-center">
+    <span class="shrink-0 bg-maroon-dark px-4 py-2.5 text-xs md:text-sm font-bold flex items-center gap-2 z-10">
+      <svg class="w-4 h-4 text-brasslt" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+      নোটিশ
+    </span>
+    <div class="marquee-track py-2.5 text-sm">
+      <span class="px-6 whitespace-nowrap">১৪৪৭ হিজরি শিক্ষাবর্ষে নতুন ভর্তি চলছে — আসন সীমিত।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">বার্ষিক ক্বিরাত ও হিফজ প্রতিযোগিতা আগামী ২০ জুলাই অনুষ্ঠিত হবে।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">কিতাব বিভাগের বার্ষিক পরীক্ষার রুটিন নোটিশ বোর্ডে প্রকাশিত হয়েছে।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">১৪৪৭ হিজরি শিক্ষাবর্ষে নতুন ভর্তি চলছে — আসন সীমিত।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">বার্ষিক ক্বিরাত ও হিফজ প্রতিযোগিতা আগামী ২০ জুলাই অনুষ্ঠিত হবে।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">কিতাব বিভাগের বার্ষিক পরীক্ষার রুটিন নোটিশ বোর্ডে প্রকাশিত হয়েছে।</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ TIMELINE ============ -->
+<section class="py-20 px-6 bg-paper">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-6 mb-16 reveal">
+      <div class="relative">
+        <div class="w-12 h-12 rounded-full bg-teal text-brasslt font-serif font-bold flex items-center justify-center mb-4">১</div>
+        <h4 class="font-serif font-bold text-teal mb-2">ফরম সংগ্রহ</h4>
+        <p class="text-sm text-ink/70">মাদরাসা অফিস থেকে ভর্তি ফরম সংগ্রহ করুন।</p>
+      </div>
+      <div class="relative">
+        <div class="w-12 h-12 rounded-full bg-teal text-brasslt font-serif font-bold flex items-center justify-center mb-4">২</div>
+        <h4 class="font-serif font-bold text-teal mb-2">ফরম পূরণ ও জমা</h4>
+        <p class="text-sm text-ink/70">প্রয়োজনীয় কাগজপত্রসহ ফরম পূরণ করে অফিসে জমা দিন।</p>
+      </div>
+      <div class="relative">
+        <div class="w-12 h-12 rounded-full bg-teal text-brasslt font-serif font-bold flex items-center justify-center mb-4">৩</div>
+        <h4 class="font-serif font-bold text-teal mb-2">ভর্তি যাচাই</h4>
+        <p class="text-sm text-ink/70">বিভাগভেদে বয়স ও যোগ্যতা অনুযায়ী মৌখিক যাচাই অনুষ্ঠিত হবে।</p>
+      </div>
+      <div class="relative">
+        <div class="w-12 h-12 rounded-full bg-teal text-brasslt font-serif font-bold flex items-center justify-center mb-4">৪</div>
+        <h4 class="font-serif font-bold text-teal mb-2">ভর্তি নিশ্চিতকরণ</h4>
+        <p class="text-sm text-ink/70">ভর্তি ফি জমা দিয়ে আসন নিশ্চিত করুন।</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6 mb-14">
+      <!-- documents -->
+      <div class="reveal bg-mist rounded-lg p-8">
+        <h3 class="font-serif font-bold text-xl text-teal mb-5">প্রয়োজনীয় কাগজপত্র</h3>
+        <ul class="space-y-3 text-sm text-ink/80">
+          <li class="flex gap-3"><span class="text-brass">✓</span> শিক্ষার্থীর জন্মনিবন্ধন সনদের ফটোকপি</li>
+          <li class="flex gap-3"><span class="text-brass">✓</span> অভিভাবকের জাতীয় পরিচয়পত্রের ফটোকপি</li>
+          <li class="flex gap-3"><span class="text-brass">✓</span> পূর্ববর্তী প্রতিষ্ঠানের প্রশংসাপত্র (প্রযোজ্য ক্ষেত্রে)</li>
+          <li class="flex gap-3"><span class="text-brass">✓</span> সদ্য তোলা ২ কপি পাসপোর্ট সাইজ ছবি</li>
+          <li class="flex gap-3"><span class="text-brass">✓</span> সর্বশেষ পরীক্ষার মার্কশিট (উচ্চতর জামাতে ভর্তির ক্ষেত্রে)</li>
+        </ul>
+        <a href="#" id="downloadFormBtn" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal border-b-2 border-brass">
+          ভর্তি ফরম ডাউনলোড করুন
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+        </a>
+      </div>
+
+      <!-- rules callout -->
+      <div class="reveal bg-teal-dark text-paper rounded-lg p-8 relative overflow-hidden footer-seal-bg">
+        <div class="relative">
+          <h3 class="font-serif font-bold text-xl mb-3">দারুল ইকামা ও নাযিমে তালিমাতের নিয়মাবলী</h3>
+          <p class="text-sm text-paper/75 leading-relaxed mb-6">ভর্তির পূর্বে আবাসন ও শিক্ষা-শৃঙ্খলা সংক্রান্ত নিয়মাবলী সম্পর্কে বিস্তারিত জানুন। ভর্তি ফরম পূরণের মাধ্যমে অভিভাবক এই নিয়মাবলী মেনে নিতে সম্মত হচ্ছেন বলে গণ্য হবে।</p>
+          <a href="rules.html" class="inline-flex items-center gap-2 bg-brass hover:bg-brasslt text-tealdark font-semibold px-6 py-2.5 rounded-md transition-colors">
+            নিয়মাবলী পড়ুন
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ MULTI-STEP ADMISSION FORM WIZARD ============ -->
+    <div class="reveal cert-card rounded-lg p-6 md:p-10 max-w-3xl mx-auto">
+      <h3 class="font-serif font-bold text-xl md:text-2xl text-teal mb-2 text-center">অনলাইনে ভর্তির আবেদন করুন</h3>
+      <p class="text-sm text-ink/60 text-center mb-8">নিচের ধাপগুলো অনুসরণ করে তথ্য পূরণ করুন</p>
+
+      <!-- progress indicator -->
+      <div class="flex items-center justify-center gap-2 md:gap-4 mb-10" id="wizardProgress">
+        <div class="wizard-step-indicator flex items-center gap-2" data-step-indicator="1">
+          <span class="step-dot w-9 h-9 rounded-full flex items-center justify-center font-serif font-bold text-sm">১</span>
+          <span class="step-label hidden sm:inline text-xs font-semibold">শিক্ষার্থীর তথ্য</span>
+        </div>
+        <span class="step-line w-6 md:w-14 h-0.5 bg-teal/15"></span>
+        <div class="wizard-step-indicator flex items-center gap-2" data-step-indicator="2">
+          <span class="step-dot w-9 h-9 rounded-full flex items-center justify-center font-serif font-bold text-sm">২</span>
+          <span class="step-label hidden sm:inline text-xs font-semibold">অভিভাবকের তথ্য</span>
+        </div>
+        <span class="step-line w-6 md:w-14 h-0.5 bg-teal/15"></span>
+        <div class="wizard-step-indicator flex items-center gap-2" data-step-indicator="3">
+          <span class="step-dot w-9 h-9 rounded-full flex items-center justify-center font-serif font-bold text-sm">৩</span>
+          <span class="step-label hidden sm:inline text-xs font-semibold">ঠিকানা ও অন্যান্য</span>
+        </div>
+      </div>
+
+      <form id="admissionForm" novalidate>
+
+        <!-- STEP 1: student info -->
+        <div class="wizard-step" data-step="1">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2">
+              <label for="stuName" class="block text-sm font-medium text-ink/80 mb-1">শিক্ষার্থীর পূর্ণ নাম (বাংলা) <span class="text-maroon">*</span></label>
+              <input type="text" id="stuName" name="stuName" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+              <p class="err-msg hidden text-xs text-maroon mt-1">অনুগ্রহ করে শিক্ষার্থীর নাম লিখুন</p>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="stuNameEn" class="block text-sm font-medium text-ink/80 mb-1">শিক্ষার্থীর নাম (ইংরেজি)</label>
+              <input type="text" id="stuNameEn" name="stuNameEn" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+            </div>
+            <div>
+              <label for="stuDob" class="block text-sm font-medium text-ink/80 mb-1">জন্ম তারিখ <span class="text-maroon">*</span></label>
+              <input type="date" id="stuDob" name="stuDob" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+              <p class="err-msg hidden text-xs text-maroon mt-1">জন্ম তারিখ দিন</p>
+            </div>
+            <div>
+              <label for="stuBlood" class="block text-sm font-medium text-ink/80 mb-1">রক্তের গ্রুপ</label>
+              <select id="stuBlood" name="stuBlood" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+                <option value="">জানা নেই</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </div>
+            <div>
+              <label for="stuDept" class="block text-sm font-medium text-ink/80 mb-1">ভর্তিচ্ছু বিভাগ <span class="text-maroon">*</span></label>
+              <select id="stuDept" name="stuDept" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+                <option value="">নির্বাচন করুন</option>
+                <option value="hifz">হিফজ বিভাগ</option>
+                <option value="nazera">নাজেরা বিভাগ</option>
+                <option value="noorani">নূরানী বিভাগ</option>
+                <option value="kitab">কিতাব বিভাগ</option>
+              </select>
+              <p class="err-msg hidden text-xs text-maroon mt-1">একটি বিভাগ নির্বাচন করুন</p>
+            </div>
+            <div id="nooraniClassWrap" class="hidden">
+              <label for="nooraniClass" class="block text-sm font-medium text-ink/80 mb-1">শ্রেণি</label>
+              <select id="nooraniClass" name="nooraniClass" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+                <option value="shishu">শিশু শ্রেণী</option>
+                <option value="1st">১ম শ্রেণী</option>
+                <option value="2nd">২য় শ্রেণী</option>
+                <option value="3rd">৩য় শ্রেণী</option>
+              </select>
+            </div>
+            <div id="kitabClassWrap" class="hidden">
+              <label for="kitabClass" class="block text-sm font-medium text-ink/80 mb-1">জামাত</label>
+              <select id="kitabClass" name="kitabClass" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+                <option value="ibtidai">ইবতিদায়ী জামাত</option>
+                <option value="mizan">মিযান জামাত</option>
+                <option value="nahbemir">নাহবেমীর জামাত</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="prevInstitute" class="block text-sm font-medium text-ink/80 mb-1">পূর্ববর্তী প্রতিষ্ঠানের নাম (যদি থাকে)</label>
+              <input type="text" id="prevInstitute" name="prevInstitute" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+            </div>
+            <div class="sm:col-span-2">
+              <label for="stuBirthReg" class="block text-sm font-medium text-ink/80 mb-1">জন্মনিবন্ধন নম্বর <span class="text-maroon">*</span></label>
+              <input type="text" id="stuBirthReg" name="stuBirthReg" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+              <p class="err-msg hidden text-xs text-maroon mt-1">জন্মনিবন্ধন নম্বর দিন</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: guardian info -->
+        <div class="wizard-step hidden" data-step="2">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="guardianName" class="block text-sm font-medium text-ink/80 mb-1">অভিভাবকের নাম <span class="text-maroon">*</span></label>
+              <input type="text" id="guardianName" name="guardianName" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+              <p class="err-msg hidden text-xs text-maroon mt-1">অভিভাবকের নাম লিখুন</p>
+            </div>
+            <div>
+              <label for="guardianRelation" class="block text-sm font-medium text-ink/80 mb-1">সম্পর্ক <span class="text-maroon">*</span></label>
+              <select id="guardianRelation" name="guardianRelation" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+                <option value="">নির্বাচন করুন</option>
+                <option value="father">পিতা</option>
+                <option value="mother">মাতা</option>
+                <option value="other">অন্যান্য অভিভাবক</option>
+              </select>
+              <p class="err-msg hidden text-xs text-maroon mt-1">সম্পর্ক নির্বাচন করুন</p>
+            </div>
+            <div>
+              <label for="guardianOccupation" class="block text-sm font-medium text-ink/80 mb-1">পেশা</label>
+              <input type="text" id="guardianOccupation" name="guardianOccupation" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+            </div>
+            <div>
+              <label for="guardianNid" class="block text-sm font-medium text-ink/80 mb-1">জাতীয় পরিচয়পত্র নম্বর</label>
+              <input type="text" id="guardianNid" name="guardianNid" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+            </div>
+            <div>
+              <label for="guardianPhone" class="block text-sm font-medium text-ink/80 mb-1">মোবাইল নম্বর <span class="text-maroon">*</span></label>
+              <input type="tel" id="guardianPhone" name="guardianPhone" required pattern="^[0-9+\-\s]{6,15}$" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+              <p class="err-msg hidden text-xs text-maroon mt-1">সঠিক মোবাইল নম্বর লিখুন</p>
+            </div>
+            <div>
+              <label for="emergencyPhone" class="block text-sm font-medium text-ink/80 mb-1">জরুরি যোগাযোগ নম্বর</label>
+              <input type="tel" id="emergencyPhone" name="emergencyPhone" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: address & others -->
+        <div class="wizard-step hidden" data-step="3">
+          <div class="grid gap-4">
+            <div>
+              <label for="presentAddress" class="block text-sm font-medium text-ink/80 mb-1">বর্তমান ঠিকানা <span class="text-maroon">*</span></label>
+              <textarea id="presentAddress" name="presentAddress" rows="2" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none"></textarea>
+              <p class="err-msg hidden text-xs text-maroon mt-1">বর্তমান ঠিকানা লিখুন</p>
+            </div>
+            <label class="flex items-center gap-2 text-sm text-ink/70 -mt-2">
+              <input type="checkbox" id="sameAddressCheck" class="rounded border-teal/30">
+              স্থায়ী ঠিকানা বর্তমান ঠিকানার মতোই
+            </label>
+            <div>
+              <label for="permanentAddress" class="block text-sm font-medium text-ink/80 mb-1">স্থায়ী ঠিকানা <span class="text-maroon">*</span></label>
+              <textarea id="permanentAddress" name="permanentAddress" rows="2" required class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none"></textarea>
+              <p class="err-msg hidden text-xs text-maroon mt-1">স্থায়ী ঠিকানা লিখুন</p>
+            </div>
+            <div>
+              <span class="block text-sm font-medium text-ink/80 mb-2">থাকার ব্যবস্থা <span class="text-maroon">*</span></span>
+              <div class="flex gap-6 text-sm">
+                <label class="flex items-center gap-2"><input type="radio" name="residency" value="residential" required class="border-teal/30"> আবাসিক</label>
+                <label class="flex items-center gap-2"><input type="radio" name="residency" value="non-residential" class="border-teal/30"> অনাবাসিক</label>
+              </div>
+              <p class="err-msg hidden text-xs text-maroon mt-1">একটি অপশন নির্বাচন করুন</p>
+            </div>
+            <div>
+              <label for="extraNote" class="block text-sm font-medium text-ink/80 mb-1">অতিরিক্ত মন্তব্য (যদি থাকে)</label>
+              <textarea id="extraNote" name="extraNote" rows="2" class="w-full rounded-md border border-teal/20 bg-paper px-4 py-2.5 text-sm focus:border-brass outline-none"></textarea>
+            </div>
+            <label class="flex items-start gap-2 text-sm text-ink/75 bg-mist rounded-md px-4 py-3">
+              <input type="checkbox" id="agreeRules" name="agreeRules" required class="mt-0.5 rounded border-teal/30">
+              <span>আমি <a href="rules.html" target="_blank" class="text-teal font-semibold border-b border-brass">দারুল ইকামা ও নাযিমে তালিমাতের নিয়মাবলী</a> পড়েছি এবং তা মেনে নিতে সম্মত।</span>
+            </label>
+            <p class="err-msg hidden text-xs text-maroon">নিয়মাবলী মেনে নেওয়ার বাক্সে টিক দিন</p>
+          </div>
+        </div>
+
+        <!-- navigation -->
+        <div class="flex items-center justify-between mt-10 pt-6 border-t border-teal/10">
+          <button type="button" id="wizardPrev" class="hidden px-6 py-2.5 rounded-md text-sm font-semibold border border-teal/25 text-teal">পূর্ববর্তী</button>
+          <span class="flex-1"></span>
+          <button type="button" id="wizardNext" class="px-7 py-2.5 rounded-md text-sm font-semibold bg-teal hover:bg-tealdark text-paper transition-colors">পরবর্তী ধাপ</button>
+          <button type="submit" id="wizardSubmit" class="hidden px-7 py-2.5 rounded-md text-sm font-semibold bg-brass hover:bg-brasslt text-tealdark transition-colors">আবেদন জমা দিন</button>
+        </div>
+
+        <p id="admissionSuccess" class="hidden mt-6 text-sm text-teal bg-mist rounded-md px-4 py-3 text-center font-medium">✓ আপনার আবেদন গ্রহণ করা হয়েছে। আমরা শীঘ্রই যোগাযোগ করব।</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEE STRUCTURE ============ -->
+<section class="py-20 px-6 bg-mist">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <p class="rule-eyebrow centered justify-center mb-4">খরচ সংক্রান্ত</p>
+      <h2 class="font-serif font-bold text-3xl md:text-4xl text-teal">ফি কাঠামো</h2>
+    </div>
+    <div class="reveal overflow-x-auto rounded-lg border border-teal/10">
+      <table class="w-full text-sm text-center">
+        <thead class="bg-teal text-paper">
+          <tr>
+            <th class="px-4 py-3 font-semibold">বিভাগ</th>
+            <th class="px-4 py-3 font-semibold">ভর্তি ফি</th>
+            <th class="px-4 py-3 font-semibold">মাসিক বেতন</th>
+            <th class="px-4 py-3 font-semibold">আবাসিক (থাকা-খাওয়া)</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr class="border-t border-teal/10"><td class="px-4 py-3">হিফজ বিভাগ</td><td class="px-4 py-3">২,০০০ টাকা</td><td class="px-4 py-3">৭০০ টাকা</td><td class="px-4 py-3">৩,০০০ টাকা</td></tr>
+          <tr class="border-t border-teal/10"><td class="px-4 py-3">নাজেরা বিভাগ</td><td class="px-4 py-3">১,৫০০ টাকা</td><td class="px-4 py-3">৫০০ টাকা</td><td class="px-4 py-3">২,৮০০ টাকা</td></tr>
+          <tr class="border-t border-teal/10"><td class="px-4 py-3">নূরানী বিভাগ</td><td class="px-4 py-3">১,০০০ টাকা</td><td class="px-4 py-3">৩০০ টাকা</td><td class="px-4 py-3">—</td></tr>
+          <tr class="border-t border-teal/10"><td class="px-4 py-3">কিতাব বিভাগ</td><td class="px-4 py-3">২,৫০০ টাকা</td><td class="px-4 py-3">৮০০ টাকা</td><td class="px-4 py-3">৩,২০০ টাকা</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="reveal text-xs text-ink/60 text-center mt-4">* এতিম ও অসচ্ছল শিক্ষার্থীদের জন্য বিশেষ ছাড়ের ব্যবস্থা রয়েছে। বিস্তারিত জানতে অফিসে যোগাযোগ করুন।</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-tealdark text-paper/80 relative overflow-hidden footer-seal-bg">
+
+  <!-- motto strip -->
+  <div class="relative border-b border-brasslt/15 py-6 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-right">
+      <p class="font-arabic text-brasslt/90 text-lg">﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</p>
+      <p class="text-xs text-paper/60">"হে আমার প্রতিপালক! আমার জ্ঞান বৃদ্ধি করে দাও।" — সূরা ত্বাহা, আয়াত ১১৪</p>
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6 pt-14 pb-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+
+    <!-- about + subscribe -->
+    <div class="lg:col-span-2">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="seal" style="--size:44px">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.2 5.8L20 9l-4.4 3.6L17 19l-5-3.4L7 19l1.4-6.4L4 9l5.8-1.2L12 2z"/></svg>
+        </span>
+        <span class="font-serif font-bold text-paper text-lg">পুনিয়ানগর দারুস সালাম মাদরাসা</span>
+      </div>
+      <p class="text-sm leading-relaxed mb-6 max-w-sm">কুরআন-সুন্নাহভিত্তিক দ্বীনি শিক্ষা ও আধুনিক জ্ঞানের সমন্বয়ে আগামীর প্রজন্ম গড়ে তোলার একটি প্রতিষ্ঠান। পুনিয়ানগর, মুসলিমাবাদ, চন্দ্রগঞ্জ, লক্ষ্মীপুর।</p>
+
+      <p class="text-xs font-semibold text-brasslt mb-3 tracking-wide">নোটিশ আপডেট পেতে সাবস্ক্রাইব করুন</p>
+      <form id="footerSubscribe" class="flex gap-2 max-w-sm">
+        <input type="tel" required placeholder="আপনার মোবাইল নম্বর" class="flex-1 min-w-0 rounded-md border border-brasslt/25 bg-white/5 px-4 py-2.5 text-sm text-paper placeholder:text-paper/40 focus:border-brasslt outline-none">
+        <button type="submit" class="shrink-0 bg-brass hover:bg-brasslt text-tealdark font-semibold text-sm px-5 py-2.5 rounded-md transition-colors">যুক্ত হন</button>
+      </form>
+
+      <div class="flex gap-3 mt-6">
+        <a href="#" aria-label="ফেসবুক" class="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-brass/20 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.87v-6.98H7.9V12h2.5V9.8c0-2.47 1.47-3.84 3.72-3.84 1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54V12h2.72l-.44 2.89h-2.28v6.98A10 10 0 0022 12z"/></svg></a>
+        <a href="#" aria-label="ইউটিউব" class="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-brass/20 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12s0-3.5-.45-5.15a2.9 2.9 0 00-2-2C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.55.45a2.9 2.9 0 00-2 2C1 8.5 1 12 1 12s0 3.5.45 5.15a2.9 2.9 0 002 2C5.1 19.6 12 19.6 12 19.6s6.9 0 8.55-.45a2.9 2.9 0 002-2C23 15.5 23 12 23 12zM9.8 15.3V8.7l6 3.3z"/></svg></a>
+        <a href="#" aria-label="হোয়াটসঅ্যাপ" class="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-brass/20 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .5 0 .7.5.3.7.9 2.4 1 2.6.1.2.1.4 0 .6-.4.8-.8.8-.4 1.4.8 1.5 1.6 2 2.8 2.6.2.1.4.1.5-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1 .3.2.5.2.6.4.1.2.1.9-.1 1.6z"/></svg></a>
+      </div>
+    </div>
+
+    <!-- quick links -->
+    <div>
+      <h5 class="font-serif font-semibold text-paper mb-4">দ্রুত লিংক</h5>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="about.html" class="hover:text-brasslt transition-colors">পরিচিতি</a></li>
+        <li><a href="admission.html" class="hover:text-brasslt transition-colors">ভর্তি</a></li>
+        <li><a href="results.html" class="hover:text-brasslt transition-colors">ফলাফল</a></li>
+        <li><a href="teachers.html" class="hover:text-brasslt transition-colors">শিক্ষকমণ্ডলী</a></li>
+        <li><a href="contact.html#donate" class="hover:text-brasslt transition-colors">দান করুন</a></li>
+      </ul>
+    </div>
+
+    <!-- important links (new) -->
+    <div>
+      <h5 class="font-serif font-semibold text-paper mb-4">গুরুত্বপূর্ণ লিংক</h5>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="rules.html" class="hover:text-brasslt transition-colors">নিয়মাবলী</a></li>
+        <li><a href="events.html" class="hover:text-brasslt transition-colors">ইভেন্ট ও খবর</a></li>
+        <li><a href="notice.html" class="hover:text-brasslt transition-colors">নোটিশ বোর্ড</a></li>
+        <li><a href="gallery.html" class="hover:text-brasslt transition-colors">গ্যালারি</a></li>
+        <li><a href="departments.html" class="hover:text-brasslt transition-colors">বিভাগসমূহ</a></li>
+      </ul>
+    </div>
+
+    <!-- contact -->
+    <div>
+      <h5 class="font-serif font-semibold text-paper mb-4">যোগাযোগ</h5>
+      <ul class="space-y-2.5 text-sm">
+        <li>পুনিয়ানগর, মুসলিমাবাদ,</li>
+        <li>চন্দ্রগঞ্জ, লক্ষ্মীপুর</li>
+        <li dir="ltr" class="pt-1">+৮৮০ ১৭xx-xxxxxx</li>
+        <li class="break-all">info@punianagar-madrasah.edu.bd</li>
+      </ul>
+      <div class="mt-4 pt-4 border-t border-white/10">
+        <p class="text-xs font-semibold text-brasslt mb-1">অফিস সময়</p>
+        <p class="text-xs text-paper/60">শনি – বৃহস্পতি, সকাল ৮টা – বিকাল ৫টা</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6 border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-paper/55">
+    <p>© ২০২৬ পুনিয়ানগর দারুস সালাম মাদরাসা। সর্বস্বত্ব সংরক্ষিত।</p>
+    <p>প্রেমময় যত্নে নির্মিত — জ্ঞানের সেবায়</p>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="উপরে যান" class="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-teal text-brasslt shadow-lg flex items-center justify-center">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<div id="toast" class="fixed bottom-6 right-6 z-50 bg-teal text-paper text-sm font-medium px-5 py-3 rounded-xl shadow-xl"></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

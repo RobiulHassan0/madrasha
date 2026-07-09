@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>পরিচিতি — পুনিয়ানগর দারুস সালাম মাদরাসা</title>
+<meta name="description" content="পুনিয়ানগর দারুস সালাম মাদরাসার ইতিহাস, লক্ষ্য-উদ্দেশ্য ও মুহতামিমের বার্তা।">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          teal: '#0E3D3A', tealdark:'#082523', navy:'#16324A',
+          brass:'#B08D3F', brasslt:'#D2B36A',
+          paper:'#F8F7F3', mist:'#E7EEEC', mistdeep:'#D7E2DE',
+          ink:'#1E2422', maroon:'#7A2A2A', maroondark:'#591D1D',
+        },
+        fontFamily: {
+          serif: ['"Noto Serif Bengali"', 'serif'],
+          sans: ['"Hind Siliguri"', 'sans-serif'],
+          arabic: ['"Amiri"', 'serif'],
+        },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-sans text-ink antialiased bg-paper">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-teal focus:text-paper focus:px-4 focus:py-2 focus:rounded">
+  মূল বিষয়বস্তুতে যান
+</a>
+<!-- ============ HEADER ============ -->
+<header id="siteHeader" class="sticky top-0 z-50 bg-teal-dark transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-[84px]">
+    <a href="index.html" class="flex items-center gap-3">
+      <span class="seal" style="--size:46px">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 2l2.2 5.8L20 9l-4.4 3.6L17 19l-5-3.4L7 19l1.4-6.4L4 9l5.8-1.2L12 2z"/>
+        </svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-serif font-bold text-base md:text-lg text-paper">পুনিয়ানগর দারুস সালাম</span>
+        <span class="block text-[11px] md:text-xs tracking-wide text-brasslt/90">মাদরাসা, লক্ষ্মীপুর</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" id="desktopNav">
+      <a href="index.html" class="nav-link pb-1">হোম</a>
+      <a href="about.html" class="nav-link pb-1">পরিচিতি</a>
+      <a href="departments.html" class="nav-link pb-1">বিভাগসমূহ</a>
+      <a href="teachers.html" class="nav-link pb-1">শিক্ষকমণ্ডলী</a>
+      <a href="admission.html" class="nav-link pb-1">ভর্তি</a>
+      <a href="results.html" class="nav-link pb-1">ফলাফল</a>
+      <a href="gallery.html" class="nav-link pb-1">গ্যালারি</a>
+      <a href="notice.html" class="nav-link pb-1">নোটিশ</a>
+      <a href="contact.html" class="nav-link pb-1">যোগাযোগ</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="admission.html" class="hidden md:inline-flex items-center gap-2 bg-brass hover:bg-brasslt text-tealdark font-semibold text-sm px-5 py-2.5 rounded-md transition-colors">
+        ভর্তি চলছে
+      </a>
+      <button id="menuToggle" aria-label="মেনু খুলুন" aria-expanded="false" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-md border border-brasslt/40 text-paper">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div id="mobileMenu" class="fixed top-0 right-0 h-full w-[82%] max-w-sm z-[60] shadow-2xl flex flex-col px-8 py-8">
+  <div class="flex items-center justify-between mb-10">
+    <span class="font-serif text-paper text-lg font-bold">মেনু</span>
+    <button id="menuClose" aria-label="মেনু বন্ধ করুন" class="w-9 h-9 flex items-center justify-center rounded-md border border-brasslt/40 text-paper">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="flex flex-col gap-6 text-lg font-serif text-paper/90">
+    <a href="index.html" class="mobile-link nav-link">হোম</a>
+    <a href="about.html" class="mobile-link nav-link">পরিচিতি</a>
+    <a href="departments.html" class="mobile-link nav-link">বিভাগসমূহ</a>
+    <a href="teachers.html" class="mobile-link nav-link">শিক্ষকমণ্ডলী</a>
+    <a href="admission.html" class="mobile-link nav-link">ভর্তি</a>
+    <a href="results.html" class="mobile-link nav-link">ফলাফল</a>
+    <a href="gallery.html" class="mobile-link nav-link">গ্যালারি</a>
+    <a href="notice.html" class="mobile-link nav-link">নোটিশ</a>
+    <a href="contact.html" class="mobile-link nav-link text-brasslt">যোগাযোগ</a>
+  </nav>
+</div>
+<div id="menuOverlay" class="fixed inset-0 bg-black/50 z-[55] hidden"></div>
+
+<main id="main">
+<!-- ============ PAGE HEADER ============ -->
+<section class="bg-teal-dark text-paper py-16 px-6 relative overflow-hidden footer-seal-bg">
+  <div class="relative max-w-5xl mx-auto text-center">
+    <p class="rule-eyebrow centered justify-center text-brasslt mb-4">প্রতিষ্ঠানের পরিচিতি</p>
+    <h1 class="font-serif font-bold text-3xl md:text-5xl">আমাদের কথা</h1>
+  </div>
+</section>
+
+<!-- ============ NOTICE TICKER ============ -->
+<!-- ============ NOTICE TICKER (স্ট্যাটিক, হিরো/পেজ-হেডারের ঠিক পরে) ============ -->
+<div id="noticeTicker" class="text-paper overflow-hidden">
+  <div class="flex items-center">
+    <span class="shrink-0 bg-maroon-dark px-4 py-2.5 text-xs md:text-sm font-bold flex items-center gap-2 z-10">
+      <svg class="w-4 h-4 text-brasslt" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2a2 2 0 01-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+      নোটিশ
+    </span>
+    <div class="marquee-track py-2.5 text-sm">
+      <span class="px-6 whitespace-nowrap">১৪৪৭ হিজরি শিক্ষাবর্ষে নতুন ভর্তি চলছে — আসন সীমিত।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">বার্ষিক ক্বিরাত ও হিফজ প্রতিযোগিতা আগামী ২০ জুলাই অনুষ্ঠিত হবে।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">কিতাব বিভাগের বার্ষিক পরীক্ষার রুটিন নোটিশ বোর্ডে প্রকাশিত হয়েছে।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">১৪৪৭ হিজরি শিক্ষাবর্ষে নতুন ভর্তি চলছে — আসন সীমিত।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">বার্ষিক ক্বিরাত ও হিফজ প্রতিযোগিতা আগামী ২০ জুলাই অনুষ্ঠিত হবে।</span>
+      <span class="px-6 whitespace-nowrap">•</span>
+      <span class="px-6 whitespace-nowrap">কিতাব বিভাগের বার্ষিক পরীক্ষার রুটিন নোটিশ বোর্ডে প্রকাশিত হয়েছে।</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ HISTORY + VISION/MISSION ============ -->
+<section class="py-20 px-6 bg-paper">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-start mb-16">
+    <div class="reveal">
+      <h2 class="font-serif font-bold text-2xl text-teal mb-4">ইতিহাস ও যাত্রা</h2>
+      <p class="text-ink/80 leading-relaxed mb-4">
+        লক্ষ্মীপুরের চন্দ্রগঞ্জ থানার পুনিয়ানগর, মুসলিমাবাদ গ্রামে এলাকাবাসীর সম্মিলিত প্রচেষ্টা ও দ্বীনি চেতনার ফসল হিসেবে পুনিয়ানগর দারুস সালাম মাদরাসার যাত্রা শুরু হয়। প্রতিষ্ঠাকাল থেকেই মাদরাসাটি বিশুদ্ধ কুরআন শিক্ষা ও ইলমে দ্বীনের প্রসারে নিরলসভাবে কাজ করে আসছে।
+      </p>
+      <p class="text-ink/80 leading-relaxed">
+        বর্তমানে হিফজ, নাজেরা, নূরানী ও কিতাব — এই চারটি বিভাগে শতাধিক শিক্ষার্থী দ্বীনি শিক্ষা গ্রহণ করছে। হিফজ ও নাজেরা বিভাগের শিক্ষার্থীরা একই কক্ষে অবস্থান করে এবং অভিন্ন ক্লাস রুটিন অনুসরণ করে, যা তাদের মধ্যে সৌহার্দ্য ও শৃঙ্খলাবোধ গড়ে তোলে।
+      </p>
+    </div>
+    <div class="reveal grid grid-cols-1 gap-5">
+      <div class="bg-teal text-paper rounded-lg p-7 lift">
+        <h3 class="font-serif font-bold text-xl text-brasslt mb-2">লক্ষ্য (Vision)</h3>
+        <p class="text-paper/85 text-sm leading-relaxed">এমন একটি প্রজন্ম গড়ে তোলা যারা কুরআন-সুন্নাহর আলোকে চরিত্রবান এবং যুগের চাহিদা অনুযায়ী দক্ষ ও আত্মনির্ভরশীল।</p>
+      </div>
+      <div class="bg-mist rounded-lg p-7 lift">
+        <h3 class="font-serif font-bold text-xl text-teal mb-2">উদ্দেশ্য (Mission)</h3>
+        <p class="text-ink/80 text-sm leading-relaxed">বিশুদ্ধ কুরআন শিক্ষা, নববী আদর্শে চরিত্র গঠন এবং সুশৃঙ্খল পরিবেশে একটি পূর্ণাঙ্গ দ্বীনি শিক্ষাব্যবস্থা প্রতিষ্ঠা করা।</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Muhtamim message -->
+  <div class="max-w-6xl mx-auto reveal cert-card rounded-lg p-8 md:p-12 grid md:grid-cols-[auto,1fr] gap-8 items-center mb-16">
+    <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-teal ring-4 ring-brass/30 flex items-center justify-center mx-auto md:mx-0 shrink-0">
+      <span class="font-serif text-brasslt text-3xl font-bold">মো</span>
+    </div>
+    <div>
+      <svg class="w-8 h-8 text-brass/50 mb-3" fill="currentColor" viewBox="0 0 32 32"><path d="M10 8c-4 2-6 6-6 10 0 3 2 5 5 5s5-2 5-5c0-2-1-4-3-5 0-3 2-5 5-6l-1-4c-2 1-4 3-5 5zm14 0c-4 2-6 6-6 10 0 3 2 5 5 5s5-2 5-5c0-2-1-4-3-5 0-3 2-5 5-6l-1-4c-2 1-4 3-5 5z"/></svg>
+      <p class="text-ink/85 leading-relaxed italic mb-4">
+        "আমাদের লক্ষ্য কেবল সনদধারী তৈরি করা নয়, বরং এমন মানুষ তৈরি করা যারা নিজ পরিবার, সমাজ ও উম্মাহর জন্য কল্যাণকর হবে। এই প্রতিষ্ঠান একটি আমানত — একে সঠিকভাবে গড়ে তোলার দায়িত্ব আমাদের সকলের।"
+      </p>
+      <p class="font-serif font-bold text-teal">হাফেয মাওলানা মোশাররফ হোসাইন</p>
+      <p class="text-xs text-ink/60">মুহতামিম, পুনিয়ানগর দারুস সালাম মাদরাসা</p>
+    </div>
+  </div>
+
+  <!-- core values -->
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <p class="rule-eyebrow centered justify-center mb-4">আদর্শ</p>
+      <h2 class="font-serif font-bold text-2xl md:text-3xl text-teal">আমাদের মূলনীতি</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal cert-card rounded-lg p-6 text-center lift">
+        <div class="w-12 h-12 mx-auto rounded-md bg-teal flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-brasslt" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.25v13.5M6 5.5c2.5-1.5 4.5-1.2 6 .5 1.5-1.7 3.5-2 6-.5v13.5c-2.5-1.5-4.5-1.2-6 .5-1.5-1.7-3.5-2-6-.5V5.5z"/></svg>
+        </div>
+        <h4 class="font-serif font-bold text-teal mb-2">কুরআন-সুন্নাহভিত্তিক শিক্ষা</h4>
+        <p class="text-xs text-ink/65">সকল শিক্ষা কার্যক্রম কুরআন ও সহিহ হাদিসের আলোকে পরিচালিত।</p>
+      </div>
+      <div class="reveal cert-card rounded-lg p-6 text-center lift">
+        <div class="w-12 h-12 mx-auto rounded-md bg-teal flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-brasslt" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4l8 3.6v3.6c0 5-3.4 8.9-8 10.4-4.6-1.5-8-5.4-8-10.4V7.6L12 4z"/></svg>
+        </div>
+        <h4 class="font-serif font-bold text-teal mb-2">চরিত্র গঠন</h4>
+        <p class="text-xs text-ink/65">নববী আদর্শে শিক্ষার্থীদের নৈতিক ও মানবিক গুণাবলি বিকাশে যত্নশীল।</p>
+      </div>
+      <div class="reveal cert-card rounded-lg p-6 text-center lift">
+        <div class="w-12 h-12 mx-auto rounded-md bg-teal flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-brasslt" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h4 class="font-serif font-bold text-teal mb-2">সুশৃঙ্খল ব্যবস্থাপনা</h4>
+        <p class="text-xs text-ink/65">দারুল ইকামা ও শিক্ষা সচিবের তত্ত্বাবধানে সুনির্দিষ্ট নিয়ম-শৃঙ্খলা।</p>
+      </div>
+      <div class="reveal cert-card rounded-lg p-6 text-center lift">
+        <div class="w-12 h-12 mx-auto rounded-md bg-teal flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-brasslt" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h4 class="font-serif font-bold text-teal mb-2">ব্যক্তিগত পরিচর্যা</h4>
+        <p class="text-xs text-ink/65">প্রতিটি শিক্ষার্থীর সক্ষমতা অনুযায়ী পৃথক মনোযোগ ও যত্ন নেওয়া হয়।</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-tealdark text-paper/80 relative overflow-hidden footer-seal-bg">
+
+  <!-- motto strip -->
+  <div class="relative border-b border-brasslt/15 py-6 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-right">
+      <p class="font-arabic text-brasslt/90 text-lg">﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</p>
+      <p class="text-xs text-paper/60">"হে আমার প্রতিপালক! আমার জ্ঞান বৃদ্ধি করে দাও।" — সূরা ত্বাহা, আয়াত ১১৪</p>
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6 pt-14 pb-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+
+    <!-- about + subscribe -->
+    <div class="lg:col-span-2">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="seal" style="--size:44px">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.2 5.8L20 9l-4.4 3.6L17 19l-5-3.4L7 19l1.4-6.4L4 9l5.8-1.2L12 2z"/></svg>
+        </span>
+        <span class="font-serif font-bold text-paper text-lg">পুনিয়ানগর দারুস সালাম মাদরাসা</span>
+      </div>
+      <p class="text-sm leading-relaxed mb-6 max-w-sm">কুরআন-সুন্নাহভিত্তিক দ্বীনি শিক্ষা ও আধুনিক জ্ঞানের সমন্বয়ে আগামীর প্রজন্ম গড়ে তোলার একটি প্রতিষ্ঠান। পুনিয়ানগর, মুসলিমাবাদ, চন্দ্রগঞ্জ, লক্ষ্মীপুর।</p>
+
+      <p class="text-xs font-semibold text-brasslt mb-3 tracking-wide">নোটিশ আপডেট পেতে সাবস্ক্রাইব করুন</p>
+      <form id="footerSubscribe" class="flex gap-2 max-w-sm">
+        <input type="tel" required placeholder="আপনার মোবাইল নম্বর" class="flex-1 min-w-0 rounded-md border border-brasslt/25 bg-white/5 px-4 py-2.5 text-sm text-paper placeholder:text-paper/40 focus:border-brasslt outline-none">
+        <button type="submit" class="shrink-0 bg-brass hover:bg-brasslt text-tealdark font-semibold text-sm px-5 py-2.5 rounded-md transition-colors">যুক্ত হন</button>
+      </form>
+
+      <div class="flex gap-3 mt-6">
+        <a href="#" aria-label="ফেসবুক" class="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-brass/20 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.87v-6.98H7.9V12h2.5V9.8c0-2.47 1.47-3.84 3.72-3.84 1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.22 0-1.6.76-1.6 1.54V12h2.72l-.44 2.89h-2.28v6.98A10 10 0 0022 12z"/></svg></a>
+        <a href="#" aria-label="ইউটিউব" class="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-brass/20 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23 12s0-3.5-.45-5.15a2.9 2.9 0 00-2-2C18.9 4.4 12 4.4 12 4.4s-6.9 0-8.55.45a2.9 2.9 0 00-2 2C1 8.5 1 12 1 12s0 3.5.45 5.15a2.9 2.9 0 002 2C5.1 19.6 12 19.6 12 19.6s6.9 0 8.55-.45a2.9 2.9 0 002-2C23 15.5 23 12 23 12zM9.8 15.3V8.7l6 3.3z"/></svg></a>
+        <a href="#" aria-label="হোয়াটসঅ্যাপ" class="w-9 h-9 rounded-md bg-white/5 flex items-center justify-center hover:bg-brass/20 transition-colors"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.4-2 1.5-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .5 0 .7.5.3.7.9 2.4 1 2.6.1.2.1.4 0 .6-.4.8-.8.8-.4 1.4.8 1.5 1.6 2 2.8 2.6.2.1.4.1.5-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.7-.1.3.1 1.9.9 2.2 1 .3.2.5.2.6.4.1.2.1.9-.1 1.6z"/></svg></a>
+      </div>
+    </div>
+
+    <!-- quick links -->
+    <div>
+      <h5 class="font-serif font-semibold text-paper mb-4">দ্রুত লিংক</h5>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="about.html" class="hover:text-brasslt transition-colors">পরিচিতি</a></li>
+        <li><a href="admission.html" class="hover:text-brasslt transition-colors">ভর্তি</a></li>
+        <li><a href="results.html" class="hover:text-brasslt transition-colors">ফলাফল</a></li>
+        <li><a href="teachers.html" class="hover:text-brasslt transition-colors">শিক্ষকমণ্ডলী</a></li>
+        <li><a href="contact.html#donate" class="hover:text-brasslt transition-colors">দান করুন</a></li>
+      </ul>
+    </div>
+
+    <!-- important links (new) -->
+    <div>
+      <h5 class="font-serif font-semibold text-paper mb-4">গুরুত্বপূর্ণ লিংক</h5>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="rules.html" class="hover:text-brasslt transition-colors">নিয়মাবলী</a></li>
+        <li><a href="events.html" class="hover:text-brasslt transition-colors">ইভেন্ট ও খবর</a></li>
+        <li><a href="notice.html" class="hover:text-brasslt transition-colors">নোটিশ বোর্ড</a></li>
+        <li><a href="gallery.html" class="hover:text-brasslt transition-colors">গ্যালারি</a></li>
+        <li><a href="departments.html" class="hover:text-brasslt transition-colors">বিভাগসমূহ</a></li>
+      </ul>
+    </div>
+
+    <!-- contact -->
+    <div>
+      <h5 class="font-serif font-semibold text-paper mb-4">যোগাযোগ</h5>
+      <ul class="space-y-2.5 text-sm">
+        <li>পুনিয়ানগর, মুসলিমাবাদ,</li>
+        <li>চন্দ্রগঞ্জ, লক্ষ্মীপুর</li>
+        <li dir="ltr" class="pt-1">+৮৮০ ১৭xx-xxxxxx</li>
+        <li class="break-all">info@punianagar-madrasah.edu.bd</li>
+      </ul>
+      <div class="mt-4 pt-4 border-t border-white/10">
+        <p class="text-xs font-semibold text-brasslt mb-1">অফিস সময়</p>
+        <p class="text-xs text-paper/60">শনি – বৃহস্পতি, সকাল ৮টা – বিকাল ৫টা</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6 border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-paper/55">
+    <p>© ২০২৬ পুনিয়ানগর দারুস সালাম মাদরাসা। সর্বস্বত্ব সংরক্ষিত।</p>
+    <p>প্রেমময় যত্নে নির্মিত — জ্ঞানের সেবায়</p>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="উপরে যান" class="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-teal text-brasslt shadow-lg flex items-center justify-center">
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<div id="toast" class="fixed bottom-6 right-6 z-50 bg-teal text-paper text-sm font-medium px-5 py-3 rounded-xl shadow-xl"></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
