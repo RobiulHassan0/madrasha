@@ -398,6 +398,135 @@
   }
 
   /* =========================================================
+     3D CARD CAROUSEL — achiever testimonials (achievers.html)
+     ========================================================= */
+  const card3dTrack = document.getElementById("card3dTrack");
+  if (card3dTrack) {
+    const cards = [
+      { quote: "মুমতায ফলাফল অর্জন করতে পেরে আল্লাহর কাছে শুকরিয়া। উস্তাদগণের অক্লান্ত পরিশ্রম ও দোয়া ছাড়া এটা সম্ভব হতো না।", name: "মুহাম্মদ আরিফুল ইসলাম", role: "নাহবেমীর জামাত" },
+      { quote: "প্রতিদিন ফজরের পর সবক প্রস্তুতির অভ্যাসই আমাকে হিফজ সম্পন্ন করতে সাহায্য করেছে। উস্তাদের ধৈর্য ছিল অসাধারণ।", name: "ফাহিম আহমেদ", role: "হিফজ বিভাগ" },
+      { quote: "মিযান জামাতে পড়ার সময় যে শৃঙ্খলা শিখেছি, তা আমার সারা জীবনের পাথেয়। এখানকার পরিবেশ সত্যিই অনুপ্রেরণাদায়ক।", name: "সাদমান হোসাইন", role: "মিযান জামাত" },
+      { quote: "ছোটবেলা থেকে এই মাদরাসায় পড়ছি। উস্তাদদের স্নেহ ও যত্নে আমি তিলাওয়াতে ভালো ফলাফল করতে পেরেছি।", name: "তানভীর হাসান", role: "নূরানী বিভাগ — ৩য় শ্রেণী" },
+      { quote: "নিয়মিত মুতালাআ ও উস্তাদের পরামর্শ অনুসরণ করে আমি জাইয়্যিদ জিদ্দান অর্জন করতে পেরেছি। আলহামদুলিল্লাহ।", name: "নাঈম হোসাইন", role: "ইবতিদায়ী জামাত" },
+    ];
+    let c3dIndex = 0;
+    const c3dDots = document.getElementById("card3dDots");
+
+    function cardHTML(item, offset) {
+      let transform, opacity, zIndex, pointerEvents;
+      if (offset === 0) { transform = "translate(-50%,-50%) scale(1) rotateY(0deg)"; opacity = 1; zIndex = 30; pointerEvents = "auto"; }
+      else if (offset === -1) { transform = "translate(-90%,-50%) scale(.82) rotateY(20deg)"; opacity = .55; zIndex = 20; pointerEvents = "none"; }
+      else if (offset === 1) { transform = "translate(-10%,-50%) scale(.82) rotateY(-20deg)"; opacity = .55; zIndex = 20; pointerEvents = "none"; }
+      else { transform = "translate(-50%,-50%) scale(.6)"; opacity = 0; zIndex = 10; pointerEvents = "none"; }
+      return `
+        <div class="card3d absolute top-1/2 left-1/2 w-[85%] max-w-sm bg-white rounded-lg p-6 md:p-8 border border-teal/10 shadow-lg text-center"
+             style="transform:${transform}; opacity:${opacity}; z-index:${zIndex}; pointer-events:${pointerEvents};">
+          <svg class="w-7 h-7 text-brass/50 mx-auto mb-3" fill="currentColor" viewBox="0 0 32 32"><path d="M10 8c-4 2-6 6-6 10 0 3 2 5 5 5s5-2 5-5c0-2-1-4-3-5 0-3 2-5 5-6l-1-4c-2 1-4 3-5 5zm14 0c-4 2-6 6-6 10 0 3 2 5 5 5s5-2 5-5c0-2-1-4-3-5 0-3 2-5 5-6l-1-4c-2 1-4 3-5 5z"/></svg>
+          <p class="text-sm text-ink/80 leading-relaxed mb-4">${item.quote}</p>
+          <p class="font-serif font-bold text-teal text-sm">${item.name}</p>
+          <p class="text-xs text-ink/55">${item.role}</p>
+        </div>`;
+    }
+
+    function renderCard3d() {
+      const n = cards.length;
+      let html = "";
+      [-1, 0, 1].forEach((offset) => {
+        const idx = (c3dIndex + offset + n) % n;
+        html += cardHTML(cards[idx], offset);
+      });
+      card3dTrack.innerHTML = html;
+      c3dDots.innerHTML = cards
+        .map((_, i) => `<button aria-label="কার্ড ${i + 1}" class="w-2.5 h-2.5 rounded-full ${i === c3dIndex ? "bg-brass" : "bg-teal/20"}" data-idx="${i}"></button>`)
+        .join("");
+      c3dDots.querySelectorAll("button").forEach((dot) => {
+        dot.addEventListener("click", () => { c3dIndex = parseInt(dot.dataset.idx, 10); renderCard3d(); });
+      });
+    }
+    document.getElementById("card3dPrev").addEventListener("click", () => {
+      c3dIndex = (c3dIndex - 1 + cards.length) % cards.length;
+      renderCard3d();
+    });
+    document.getElementById("card3dNext").addEventListener("click", () => {
+      c3dIndex = (c3dIndex + 1) % cards.length;
+      renderCard3d();
+    });
+    renderCard3d();
+    setInterval(() => {
+      c3dIndex = (c3dIndex + 1) % cards.length;
+      renderCard3d();
+    }, 6500);
+  }
+
+  /* =========================================================
+     TEACHERS' WORDS CAROUSEL (হোম পেজ)
+     ========================================================= */
+  const teacherQuoteTrack = document.getElementById("teacherQuoteTrack");
+  if (teacherQuoteTrack) {
+    const teacherQuotes = [
+      {
+        quote: "আমাদের লক্ষ্য কেবল সনদধারী তৈরি করা নয়, বরং এমন মানুষ তৈরি করা যারা নিজ পরিবার, সমাজ ও উম্মাহর জন্য কল্যাণকর হবে। প্রতিটি শিক্ষার্থীর প্রতি ব্যক্তিগত যত্ন নেওয়াই আমাদের অগ্রাধিকার।",
+        name: "হাফেয মাওলানা মোশাররফ হোসাইন",
+        role: "মুহতামিম",
+      },
+      {
+        quote: "প্রতিটি শিক্ষার্থীর মেধা ও সক্ষমতা ভিন্ন। আমরা চেষ্টা করি প্রত্যেকের সামর্থ্য অনুযায়ী পাঠ্যক্রম সাজিয়ে তাদের সর্বোচ্চ বিকাশ নিশ্চিত করতে।",
+        name: "মাওলানা হাসনাত হোসাইন",
+        role: "শিক্ষাসচিব",
+      },
+      {
+        quote: "আবাসিক শিক্ষার্থীদের জন্য মাদরাসাই তাদের দ্বিতীয় ঘর। তাই তাদের থাকা-খাওয়া ও দৈনন্দিন শৃঙ্খলার প্রতিটি দিক নিয়ে আমরা সর্বোচ্চ যত্নশীল।",
+        name: "হাফেয শাহরাজ হোসাইন",
+        role: "দারুল ইকামা",
+      },
+      {
+        quote: "কুরআন মুখস্থ করার পাশাপাশি তার অর্থ ও শিক্ষা জীবনে বাস্তবায়ন করাই প্রকৃত সফলতা। আমরা সে লক্ষ্যেই শিক্ষার্থীদের গড়ে তুলি।",
+        name: "ক্বারী রফিকুল ইসলাম",
+        role: "প্রধান হিফজ শিক্ষক",
+      },
+    ];
+    let tqIndex = 0;
+    const tqDots = document.getElementById("teacherQuoteDots");
+
+    function renderTeacherQuote() {
+      const t = teacherQuotes[tqIndex];
+      teacherQuoteTrack.innerHTML = `
+        <div class="reveal in grid md:grid-cols-[auto,1fr] gap-8 items-center w-full">
+          <div class="avatar-photo mx-auto md:mx-0">
+            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 12a4 4 0 100-8 4 4 0 000 8zm-7 8c0-3.3 3.1-6 7-6s7 2.7 7 6"/></svg>
+          </div>
+          <div class="text-center md:text-right">
+            <p class="text-ink/85 leading-relaxed italic mb-4">"${t.quote}"</p>
+            <p class="font-serif font-bold text-teal">${t.name}</p>
+            <p class="text-xs text-ink/60">${t.role}, পুনিয়ানগর দারুস সালাম মাদরাসা</p>
+          </div>
+        </div>`;
+      tqDots.innerHTML = teacherQuotes
+        .map((_, i) => `<button aria-label="বাণী ${i + 1}" class="w-2.5 h-2.5 rounded-full ${i === tqIndex ? "bg-brass" : "bg-teal/20"}" data-idx="${i}"></button>`)
+        .join("");
+      tqDots.querySelectorAll("button").forEach((dot) => {
+        dot.addEventListener("click", () => {
+          tqIndex = parseInt(dot.dataset.idx, 10);
+          renderTeacherQuote();
+        });
+      });
+    }
+    document.getElementById("teacherQuotePrev").addEventListener("click", () => {
+      tqIndex = (tqIndex - 1 + teacherQuotes.length) % teacherQuotes.length;
+      renderTeacherQuote();
+    });
+    document.getElementById("teacherQuoteNext").addEventListener("click", () => {
+      tqIndex = (tqIndex + 1) % teacherQuotes.length;
+      renderTeacherQuote();
+    });
+    renderTeacherQuote();
+    setInterval(() => {
+      tqIndex = (tqIndex + 1) % teacherQuotes.length;
+      renderTeacherQuote();
+    }, 8000);
+  }
+
+  /* =========================================================
      ALUMNI TESTIMONIAL SLIDER (হোম পেজ)
      ========================================================= */
   const testimonialTrack = document.getElementById("testimonialTrack");

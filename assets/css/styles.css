@@ -15,6 +15,7 @@
   --ink:       #1E2422;   /* body text */
   --maroon:    #7A2A2A;   /* alerts / notice accent */
   --maroon-dk: #591D1D;
+  --footer-bg: #051512;   /* distinct near-black teal, only for the footer */
   --header-h: 84px;
 }
 
@@ -208,8 +209,63 @@ textarea:focus-visible, select:focus-visible{
 
 .counter{ font-variant-numeric:tabular-nums; }
 
-/* footer seal watermark */
+/* footer seal watermark — used on regular content sections (CTA banners, dark strips) */
 .footer-seal-bg{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D2B36A' stroke-width='0.6' opacity='0.5'%3E%3Ccircle cx='60' cy='60' r='40'/%3E%3Ccircle cx='60' cy='60' r='34'/%3E%3C/g%3E%3C/svg%3E");
   background-size:120px 120px;
+}
+
+/* ============ SITE FOOTER — visually distinct so it never blends into the section above ============ */
+.site-footer{
+  background: linear-gradient(180deg, var(--footer-bg) 0%, #020806 100%);
+  border-top: 4px solid var(--brass);
+  position:relative;
+  isolation:isolate;
+}
+.site-footer::before{
+  content:"";
+  position:absolute; inset:0;
+  box-shadow: 0 24px 40px -24px rgba(0,0,0,.55) inset;
+  pointer-events:none;
+}
+.site-footer::after{
+  content:"";
+  position:absolute; right:-60px; bottom:-60px; z-index:-1;
+  width:320px; height:320px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%23D2B36A' stroke-width='1'%3E%3Ccircle cx='160' cy='160' r='110'/%3E%3Ccircle cx='160' cy='160' r='95'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  opacity:.05;
+  pointer-events:none;
+}
+
+/* ============ AVATAR / PHOTO PLACEHOLDER (illustrative, no real photos) ============ */
+.avatar-photo{
+  width:84px; height:84px; border-radius:14px;
+  background:linear-gradient(160deg, var(--teal), var(--teal-dark));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 22px -10px rgba(11,61,58,.45);
+  border:2px solid var(--brass-lt);
+  margin:0 auto;
+  flex-shrink:0;
+}
+.avatar-photo.sm{ width:64px; height:64px; border-radius:12px; }
+.avatar-photo svg{ width:40px; height:40px; color:rgba(248,247,243,.88); }
+.avatar-photo.sm svg{ width:30px; height:30px; }
+.avatar-photo.on-dark{ background:rgba(255,255,255,.08); border-color:rgba(210,179,106,.5); }
+
+/* ============ TIMELINE CONNECTOR (admission steps) ============ */
+.timeline-wrap{ position:relative; }
+.timeline-line{
+  position:absolute; top:24px; left:12.5%; right:12.5%; height:2px;
+  background:linear-gradient(90deg, var(--brass) 0%, var(--brass-lt) 50%, var(--brass) 100%);
+  z-index:0;
+}
+.timeline-step{ position:relative; z-index:1; text-align:center; }
+.timeline-step .step-num{ margin:0 auto; }
+
+/* ============ 3D TESTIMONIAL CARD CAROUSEL ============ */
+.card3d-stage{ perspective:1200px; }
+.card3d{
+  transition:transform .5s ease, opacity .5s ease;
+  transform-style:preserve-3d;
 }
